@@ -23,8 +23,7 @@
   overflow-y: auto;
   padding-left: 50px;
   width: 100%;
-  @include customScrollbar(true);  
-  padding-bottom: 50px;
+  @include customScrollbar(true);    
 
   h3{
     font-size: 24px;
@@ -53,13 +52,11 @@
   }  
   
   @media ($tabletWidth){
-    padding-left: 83px;
-    min-height: 100vh;
+    padding-left: 83px;    
   }
 
   @media ($mobileWidth){
-    padding-left: 0;   
-    padding-bottom: 80px; 
+    padding-left: 0;    
   }
 }
 
