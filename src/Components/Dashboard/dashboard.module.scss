@@ -18,12 +18,11 @@
   }
 }
 
-.dashboardContainer{
-  height: 100vh;
+.dashboardContainer{  
   overflow-y: auto;
   padding-left: 50px;
   width: 100%;
-  @include customScrollbar(true);    
+  @include customScrollbar(true);      
 
   h3{
     font-size: 24px;
@@ -37,15 +36,18 @@
   .heading{
     @media ($tabletWidth){
       padding-left: 50px;
+      padding-top: 70px;
     }
 
     @media ($mobileWidth){
       padding-left: 20px;
       font-size: 20px;      
+      padding-top: 60px;
     }
   }
 
   @media ($desktopWidth){
+    height: 100vh;
     &:hover{
       @include showScrollBar();
     }
@@ -81,9 +83,14 @@
   @media ($tabletWidth){
     padding-block: 12px;
     padding-inline: 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 13%;    
   }
   
   @media ($mobileWidth) {
+    left: 0;
     .searchIcon{
       margin-top: 3px;
     }
