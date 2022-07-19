@@ -48,7 +48,7 @@
 
   @media ($desktopWidth){
     height: 100vh;
-    &:hover{
+    &:hover{ 
       @include showScrollBar();
     }
   }  
