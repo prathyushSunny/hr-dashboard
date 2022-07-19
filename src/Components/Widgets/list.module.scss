@@ -1,0 +1,160 @@
+@import '../../assets/css/custom.scss';
+
+.listContainer{
+  *{
+    margin: 0;
+  }
+  @include svg();
+  @include customScrollbar(true);
+  @include transition(0.8s);
+  max-height: 400px;
+  overflow-x: auto;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(224, 224, 224, 1);  
+  position: relative;    
+
+  &:hover{
+    @include showScrollBar();
+  }
+
+  &.active{
+    max-height: 1000px;        
+  }
+
+  .headingContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 16px;
+    padding-inline: 20px;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+
+    @media ($mobileWidth){
+      margin-bottom: 6px;
+    }
+
+    h3{
+      font-size: 18px;
+      @include poppins();
+      margin: 0;
+      
+      @media ($tabletWidth){
+        font-size: 16px;
+      }      
+    }
+
+    .dropdown{
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      cursor: pointer;
+      color: $lighGrey;
+      font-size: 12px;
+      padding: 3px 8px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 4px;      
+      @include roboto();
+      @include hoverBlackBg();
+      
+      @media ($mobileWidth){
+        font-size: 10px;
+      }
+
+      svg{
+        font-size: 18px;
+      }
+    }    
+  }
+
+  .list{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;    
+    padding-inline: 20px;
+    
+    .listItem{
+      border: 1px solid rgba(224, 224, 224, 1);
+      padding: 12px 32px 12px 16px;
+      background: rgba(224, 224, 224, 0.3);
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      @include hoverBlackBg();
+      @include cg(15%);
+      
+      @media ($mobileWidth){
+        padding: 10px 20px 12px 14px;
+      }
+
+      p{
+        @media ($tabletWidth){
+           font-size: 15px;              
+        }
+        @media ($mobileWidth){
+          font-size: 14px;              
+       }
+      }       
+    }
+
+    .ctas{
+      display: flex;
+      align-items: center;
+      column-gap: 26px;
+
+      @media ($mobileWidth){
+        @include cg(16px);
+      }
+    }
+
+    p{
+      @include poppins();
+    }
+
+    span{
+      font-size: 10px;
+      @include roboto();
+      color: $lighGrey;
+    }
+  }
+
+  .openAnnouncements{
+    position: sticky;
+    bottom: 0;
+    right: 0;
+    left: 0;    
+    background: white;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    border: none;
+    border-top: 1px solid rgba(224, 224, 224, 1);
+    color: $orange;
+    font-size: 14px;
+    padding: 9px;
+    @include poppins();
+    @include hoverBlackBg();
+    margin-top: 20px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }  
+
+  @media ($tabletWidth){
+    &.scheduleContainer{            
+      flex-basis: 374px;
+      flex-shrink: 0;
+    }
+  }
+
+  @media (max-width: 800px){
+    &.scheduleContainer{            
+      flex-basis: auto;
+    }    
+  }
+}

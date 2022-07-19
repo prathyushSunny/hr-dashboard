@@ -1,0 +1,130 @@
+@import '../../assets/css/custom.scss';
+
+//Globals
+$navWidth: 242px;
+
+.navContainer{
+  height: 100vh;      
+  border-right: 1px solid rgba(241, 241, 241, 1);
+  background: #fafafa;
+  @include customScrollbar(true);
+  @include transition(0.4s);
+  &:hover{
+    @include showScrollBar();
+  }
+
+  h1{
+    font-size: 36px;    
+    text-align: center;
+    margin-top: 30px;
+    @include poppins();
+    @include fw600();
+    @include ls(2px);    
+
+    @media ($tabletWidth){
+      font-size: 20px;
+    }    
+  }
+
+  @media screen and ($desktopWidth){
+    &{
+      min-width: $navWidth;
+      max-height: 100vh;
+      overflow-y: auto;      
+    }
+  }
+  
+  @media ($tabletWidth){
+    max-width: 90px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+
+    &.open .dashboardMenu button span{      
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity: 0;    
+      }
+      to{
+        opacity: 1;
+      }
+    }
+
+    &.open{
+      max-width: 300px;
+      box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.05);
+    }    
+  }
+
+  @media ($mobileWidth){
+    transform: translateX(-100%);          
+    -webkit-transform: translateX(-100%);          
+
+    &.open{
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+    }
+  }
+}
+
+.dashboardMenu{
+  margin-top: 59px;  
+  @include svg();
+
+  h3{
+    @include greyTag();
+    @include px(30px);
+
+    @media ($tabletWidth){
+      font-size: 10px;
+      @include px(10px);
+      text-align: center;
+      max-width: 90px;
+    }
+  }
+
+  button{
+    @include cg(27px);
+    @include px(30px);
+    @include py(16px);
+    @include poppins();
+    display: flex;
+    align-items: center;
+    border: none;
+    background: none;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;    
+  }
+
+  button *{
+    @include transition(0.1s);
+  }
+
+  button span{
+    color: $grey;    
+
+    @media ($tabletWidth){      
+      @include transition();
+      opacity: 0;
+      padding-right: 30px;
+    }
+    
+    @media ($mobileWidth){      
+      font-size: 14px;
+    }
+  }
+
+  button:hover .dashboardIcon{
+    color: rgba($darkGrey, 0.6);
+  }
+
+  button.active *{
+    color: $orange;
+  }
+}

@@ -1,0 +1,155 @@
+$background: 'red';
+$mobileWidth: 'max-width: 400px';
+$tabletWidth: 'max-width: 834px';
+$desktopWidth: 'min-width: 834px';
+$lighGrey: #b2b2b2;
+$grey: #686868;
+$darkGrey: #303030;
+$orange: #FF5151;
+
+@mixin poppins(){
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+@mixin roboto(){
+  font-family: 'Roboto', sans-serif;
+}
+
+@mixin fw500(){
+  font-weight: 500;
+}
+
+@mixin fw600(){
+  font-weight: 600;
+}
+
+@mixin fw700(){
+  font-weight: 700;
+}
+
+@mixin fs($px: 16px){
+  font-size: $px;
+}
+
+@mixin greyTag($fontSize: 12px, $color: $grey, $fontWeight: 500){
+  color: $color;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+}
+
+@mixin px($px: 0){
+  padding-inline: $px;
+  -webkit-padding-inline: $px;
+}
+
+@mixin py($px: 0){
+  padding-block: $px;
+  -webkit-padding-block: $px;
+}
+
+@mixin gap($px: 0){
+  gap: $px;
+  -webkit-gap: $px;
+}
+
+@mixin rg($px: 0){
+  row-gap: $px;
+  -webkit-row-gap: $px;
+}
+
+@mixin cg($px: 0){
+  column-gap: $px;
+  -webkit-column-gap: $px;
+}
+
+@mixin ls($px: 0){
+  letter-spacing: $px;
+}
+
+@mixin transition($sec: 0.3s){
+  transition: $sec ease;
+  -webkit-transition: $sec ease;
+}
+
+@mixin customScrollbar($onHover: false){
+  &::-webkit-scrollbar {
+    width: 6px;        
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;    
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);        
+    @if $onHover{
+      & {
+        background: transparent;
+        @include transition();
+      }
+    }
+    border-radius: 30px;
+  }
+
+  @media ($tabletWidth){
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+@mixin showScrollBar(){
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+@mixin svg(){
+  & svg{    
+    color: $lighGrey;
+    font-size: 24px;
+    cursor: pointer;
+    @include transition();
+  }
+
+  & svg:hover{
+    color: rgba($darkGrey, 0.6);
+  }    
+
+  @media ($tabletWidth){
+    & svg{
+      font-size: 22px;
+    }    
+  }
+
+  @media ($mobileWidth){
+    & svg{
+      font-size: 21px;
+    }    
+  }  
+}
+
+@mixin placeholderColor($color){
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  &:-moz-placeholder {
+    color: $color;
+  }
+}
+
+@mixin hoverBlackBg($color: white){
+  @media ($desktopWidth){
+    &{
+      @include transition();
+    }
+  
+    &:hover{
+      background: mix($color, black, 97);
+    }
+  }  
+}

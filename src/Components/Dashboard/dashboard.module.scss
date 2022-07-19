@@ -1,0 +1,242 @@
+@import '../../assets/css/custom.scss';
+
+.navBackdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0;
+  @include transition();
+  
+  &.open{
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.dashboardContainer{
+  height: 100vh;
+  overflow-y: auto;
+  padding-left: 50px;
+  width: 100%;
+  @include customScrollbar(true);  
+  padding-bottom: 50px;
+
+  h3{
+    font-size: 24px;
+    width: 100%;
+    font-weight: 500;
+    @include poppins();
+    margin-top: 20px;
+    margin-bottom: 20px;    
+  }
+
+  .heading{
+    @media ($tabletWidth){
+      padding-left: 50px;
+    }
+
+    @media ($mobileWidth){
+      padding-left: 20px;
+      font-size: 20px;      
+    }
+  }
+
+  @media ($desktopWidth){
+    &:hover{
+      @include showScrollBar();
+    }
+  }  
+  
+  @media ($tabletWidth){
+    padding-left: 83px;
+  }
+
+  @media ($mobileWidth){
+    padding-left: 0;   
+    padding-bottom: 80px; 
+  }
+}
+
+.headerContainer{
+  @include svg();
+  border-bottom: 1px solid rgba(241, 241, 241, 1);
+  padding-block: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 43px;
+  position: sticky;
+  background: white;
+  z-index: 2;
+  top: 0;
+  @include cg(5%);
+
+  .searchSm{
+    display: none;
+  }
+
+  @media ($tabletWidth){
+    padding-block: 12px;
+    padding-inline: 20px;
+  }
+  
+  @media ($mobileWidth) {
+    .searchIcon{
+      margin-top: 3px;
+    }
+
+    .searchSm{
+      display: block;
+    }
+  }
+
+  .ham{
+    display: none;
+
+    @media ($tabletWidth){
+      margin-left: 16px;
+      margin-right: 20px;     
+      display: block;
+      border: none;
+      background: none;      
+      margin-left: 0;
+      margin-right: 20px;
+    }
+
+    @media ($mobileWidth){
+      margin-left: -5px;
+    }
+  }
+
+  .searchContainer{    
+    background: #fafafa;
+    border-radius: 4px;
+    border: 1px solid rgba(224, 224, 224, 1);
+    display: flex;
+    align-items: center;
+    padding: 8px;        
+    position: relative;    
+    width: 100%;
+    flex-shrink: 1;
+
+    @media ($desktopWidth){
+      min-width: 343px;
+    }
+
+    @media ($tabletWidth){
+      flex-basis: 245px;
+      font-size: 14px;
+    }
+    
+    @media ($mobileWidth){
+      display: none;      
+    }
+
+    input{
+      @include placeholderColor(rgba($lighGrey, 0.8));
+      @include poppins();      
+      background: none;
+      border: none;
+      outline: none;
+      color: $lighGrey;
+      flex-grow: 1;
+    }
+
+    .inputActive{
+      position: absolute;
+      height: 1.2px;
+      left: 4%;
+      right: 100%;    
+      bottom: 17%;
+      background: rgba($orange, 0.5);
+      @include transition();
+    }
+    .inputActive.active{
+      right: 15%;
+    }
+  }
+
+  .profileHandle{
+    display: flex;
+    align-items: center;
+    @include cg(35px);                
+
+    .profileCta{
+      @include cg(10px);
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      position: relative;            
+
+      img{
+        width: 35px;
+        height: 35px;
+        border-radius: 100%;        
+      }  
+
+      p{
+        @include poppins();
+        margin: 0;
+
+        @media ($tabletWidth){
+          display: none
+        }
+      }    
+
+      @media ($desktopWidth){
+        &::before{
+          position: absolute;
+          content: '';        
+          border-radius: 6px;
+          background: rgba(0, 0, 0, 0.035);
+          top: -5px;
+          bottom: -5px;
+          right: -5px;
+          left: -5px;
+          opacity: 0;
+          @include transition();
+        }
+  
+        &:hover::before{
+          top: -12px;
+          right: -12px;
+          left: -12px;
+          bottom: -12px;
+          opacity: 1;
+        }
+
+        &:active::before{
+          background: rgba(0, 0, 0, 0.07);
+        }
+      }
+    }
+    @media ($mobileWidth){
+      @include cg(24px);
+    }
+  }
+}
+
+.dashboardContent{
+  display: flex;
+  width: 100%;
+  padding-right: 50px;
+  @include gap(30px);
+
+  @media (max-width: 1200px){   
+    flex-direction: column;    
+    @include gap(20px);
+  }
+
+  @media ($tabletWidth){
+    padding-left: 50px;
+  }
+
+  @media ($mobileWidth){
+    padding-inline: 20px;
+  }
+}

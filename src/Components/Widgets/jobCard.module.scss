@@ -1,0 +1,77 @@
+@import '../../assets/css/custom.scss';
+$red: #FF5151;
+$redbg: #FFEFE7;
+$blue: #3786F1;
+$bluebg: #E8F0FB;
+$pink: #EE61CF;
+$pinkbg: #FDEBF9;
+
+.card{
+  background: rgba(255, 239, 231, 1);
+  border-radius: 10px;
+  padding: 12px 12px 12px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-grow: 1;
+  cursor: pointer;
+
+  &.red{
+    background: ($redbg);
+    @include hoverBlackBg($redbg);
+  }
+
+  &.blue{
+    background: ($bluebg);
+    @include hoverBlackBg($bluebg);
+  }
+
+  &.pink{
+    background: ($pinkbg);
+    @include hoverBlackBg($pinkbg);
+  }
+
+  & *{
+    margin: 0;
+  }
+
+  .cardTag{
+     font-size: 18px;     
+     @include poppins();
+
+     @media ($tabletWidth){
+      font-size: 16px;
+    }
+  }
+
+  .cardValue{
+    font-size: 36px;
+    margin: 0;
+    @include poppins();
+
+    @media ($tabletWidth){
+      font-size: 32px;
+    }
+  }
+
+  .cardDesc{
+    font-size: 16px;
+    @include roboto();
+
+    &.red{
+      color: ($red);
+    }
+
+    &.blue{
+      color: ($blue);
+    }
+
+    &.pink{
+      color: ($pink);
+    }
+
+    @media ($tabletWidth){
+      font-size: 14px;
+    }
+  }
+}

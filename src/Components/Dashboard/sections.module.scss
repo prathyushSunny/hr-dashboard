@@ -1,0 +1,68 @@
+@import '../../assets/css/custom.scss';
+
+.sectionsContainer{          
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  @include rg(20px);
+
+  @media (min-width: 1200px){   
+    width: 60%;    
+  }
+
+  @media ($mobileWidth){
+    @include rg(16px);
+  }
+}
+
+.sectionTwo{  
+  @media (min-width: 1200px){
+    &{
+      width: 40%;
+    }
+  }  
+
+  @media (max-width: 1200px){       
+    width: 100%;
+    flex-direction: row;
+    align-items: flex-start;
+    @include cg(20px);    
+  }
+  
+  @media (max-width: 800px){           
+    flex-direction: column;        
+  }
+}
+
+.jobCards{
+  display: flex;
+  gap: 14px;
+
+  @media (max-width: 600px){
+    flex-wrap: wrap;
+  }
+
+  @media ($mobileWidth){
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+}
+
+.statsCards{
+  display: flex;  
+  gap: 20px;
+
+  img{
+    max-width: 120px;
+    width: 100%;
+  }
+
+  @media (max-width: 600px){
+    flex-wrap: wrap;
+  }
+
+  @media ($mobileWidth){
+    gap: 16px;
+  }
+}
